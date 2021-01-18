@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-sm-7">
+      <h1 class="display-4 font-weight-bold">Welcome to the Store!</h1>
+      <h2>Selling you things you don't need since 2020</h2>
+      <p class="lead">While fresh vegetables should be a part of your everyday meals, some vegetables are hard to find even in the huge supermarkets in your area. However, the luxury of online shopping offers customers the comfort of relishing these veggies by ordering them from the comfort of their home.</p>
+      <%= link_to "View Items", items_path, class: "btn btn-primary mt-4 btn-lg" %>
+    </div>
+    <div class="col-sm-5">
+      <%= image_tag "shopping.svg", class: "img-fluid"%>
+    </div>
+  </div>
+  <hr class="mt-3">
+
+  <div class="row mt-5 mb-5">
+    <div class="col-sm-5">
+      <%= image_tag "fruits.png", class: "img-fluid"%>
+    </div>
+    <div class="col-sm-7">
+      <h2 class="display-4 font-weight-bold text-center">Content</h1>
+      <ul class="list-group">
+        <% @items.each do |item|%>
+          <li class="list-group-item"> - <%= item.name%></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="mt-5 mb-10 float-right">
+    <small class="font-weight-normal font-italic p-4 float-right">Items Apps ©Copyright 2021</small>
+</div>

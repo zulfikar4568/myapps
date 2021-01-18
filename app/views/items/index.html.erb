@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 pt-3">
+            <div class="row">
+                <%if (can? :create, Item) %>
+                    <div class="col-sm-12 mb-3">
+                        <div class="float-left">
+                            <%= link_to "Create New Items", new_item_path, class: "btn btn-outline-primary"%>
+                        </div>
+                    </div>
+                <%end%>
+
+                <% @items.each do |item|%>
+                    <div class="col-sm-9 mt-2">
+                        <% if @items.size > 0 %>
+                                <div class="card mb-2 p-3">
+                                    <h3><%= link_to item.name, item_path(item.id)%></h3>
+                                    <small>Posted by: <%= link_to item.account.full_name, account_path(item.account_id)%></small>
+                                    <p class="mt-1"><%= simple_format item.description%><p>
+                                </div>
+                        <%else%>
+                            <div class="card">
+                                    <h3>No Items to Display</h3>
+                                </div>
+                        <%end%>
+                    </div>
+                    <%# if account_signed_in?%>
+                    <% if can? :manage, item %>
+                            <div class="col-sm-3 mt-2">
+                                <%= link_to "Edit Item", edit_item_path(item.id), class: "btn btn-outline-success mb-2"%>
+                                <%= link_to "Delete Item", item_path(item.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger mb-2"%>
+                            </div>
+                    <%elsif (can? :update, item) && (can? :destroy, item) %>
+                        <%if item.account_id == current_account.id%>
+                            <div class="col-sm-3 mt-2">
+                                <%= link_to "Edit Item", edit_item_path(item.id), class: "btn btn-outline-success mb-2"%>
+                                <%= link_to "Delete Item", item_path(item.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger mb-2"%>
+                            </div>
+                        <%end%>
+                    <%end%>
+                <%end%>
+            </div>         
+        </div>
+    </div>
+</div>

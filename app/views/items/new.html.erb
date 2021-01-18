@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 pt-3">            
+            <h3>Form New Item</h3>
+            <%if (can? :create, @item) %>
+                <%= render partial: "form_new" %>
+            <%end%>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 pt-3">
+            <div class="col-8">
+                <p class="h4"><%= @profile.full_name%></p>
+                <small><p><%= @profile.username%></p></small>
+                <p style="text-align: justify;">M.Zulfikar Isnaen adalah seorang fisikawan, matematikawan, ahli astronomi, filsuf alam, alkimiawan, dan teolog yang berasal dari Inggris. Dia merupakan pengikut aliran heliosentris dan ilmuwan yang sangat berpengaruh sepanjang sejarah, bahkan dikatakan sebagai bapak ilmu fisika klasik.</p>
+                <p>Has been created: <%= @profile.created_at.strftime("%d/%m/%Y")%></p>
+            </div>
+            <div class="col-4">
+            </div>
+       </div>
+    </div>
+</div>
