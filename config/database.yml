@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: myapp-production
-  username: zulfikar
-  password: isnaen1998
+  username: ENV['USERNAME_PSQL']
+  password: ENV['PASSWORD_PSQL']

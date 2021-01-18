@@ -27,6 +27,7 @@ gem 'cancancan'
 
 gem 'font-awesome-rails'
 
+gem 'dotenv-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
